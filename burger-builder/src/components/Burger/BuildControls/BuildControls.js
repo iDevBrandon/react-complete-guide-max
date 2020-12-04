@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./BurgerControls.module.css";
-import BurgerControl from "./BurgerControl/BurgerControl";
+import classes from "./BuildControls.module.css";
+import BurgerControl from "./BuildControl/BuildControl";
 
 const controls = [
   { label: "Salad", type: "salad" },
@@ -9,9 +9,9 @@ const controls = [
   { label: "Meat", type: "meat" },
 ];
 
-const BurgerControls = () => {
+const BuildControls = () => {
   return (
-    <div className={classes.BurgerControls}>
+    <div className={classes.BuildControls}>
       {controls.map((ctrl) => (
         <BurgerControl key={ctrl.label} label={ctrl.label} />
       ))}
@@ -19,4 +19,4 @@ const BurgerControls = () => {
   );
 };
 
-export default BurgerControls;
+export default BuildControls;

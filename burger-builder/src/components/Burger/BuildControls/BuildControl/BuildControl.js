@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./BurgerControl.module.css";
+import classes from "./BuildControl.module.css";
 
-const BurgerControl = (props) => {
+const BuildControl = (props) => {
   return (
     <div className={classes.BuildControl}>
       <div className={classes.Label}>{props.label}</div>
@@ -11,4 +11,4 @@ const BurgerControl = (props) => {
   );
 };
 
-export default BurgerControl;
+export default BuildControl;
