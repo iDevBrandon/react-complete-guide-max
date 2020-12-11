@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import axios from "axios";
-import { Route, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
 
@@ -16,18 +16,20 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink to="/" exact activeClassName="active">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to={{
-                    pathname: this.props.match.url + "/new-post",
+                    pathname: "/new-post",
                     hash: "#submit",
                     search: "?quick-submit=true",
                   }}
                 >
                   New Post
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>
