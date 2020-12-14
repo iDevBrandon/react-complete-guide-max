@@ -2,15 +2,19 @@ import React, { Component } from "react";
 //import axios from "axios";
 import { Route, NavLink, Switch } from "react-router-dom";
 import Posts from "./Posts/Posts";
-import NewPost from "./NewPost/NewPost";
+import asyncComponent from "../../hoc/asyncComponent";
+import "./Blog.css";
 
+// import NewPost from "./NewPost/NewPost";
 //import Post from "../../components/Post/Post";
 
-import "./Blog.css";
+const asyncNewPost = asyncComponent(() => {
+  return import("./NewPost/NewPost");
+});
 
 class Blog extends Component {
   state = {
-    auth: false,
+    auth: true,
   };
   render() {
     return (
@@ -41,7 +45,7 @@ class Blog extends Component {
         <Route path="/" render={() => <h1>Home2</h1>} /> */}
         <Switch>
           {this.state.auth ? (
-            <Route path="/new-post" component={NewPost} />
+            <Route path="/new-post" component={asyncNewPost} />
           ) : null}
           <Route path="/posts" component={Posts} />
           <Route render={() => <h1>Not Found</h1>} />
