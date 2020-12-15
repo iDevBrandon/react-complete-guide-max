@@ -26,6 +26,7 @@ class BurgerBuilder extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
     axios
       .get(
         "https://react-my-burger-8822a-default-rtdb.firebaseio.com/ingredients.json"
@@ -89,28 +90,29 @@ class BurgerBuilder extends Component {
 
   purchaseContinueHandler = () => {
     // alert("To Be Continued...");
-    this.setState({ loading: true });
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: "iDevBrandon",
-        address: {
-          street: "Test1",
-          zipCode: "42352",
-          country: "Canada",
-        },
-      },
-      deliveryMethod: "fastest",
-    };
-    axios
-      .post("/orders.json", order)
-      .then((response) => {
-        this.setState({ loading: false, purchasing: false });
-      })
-      .catch((error) => {
-        this.setState({ loading: false, purchasing: false });
-      });
+    // this.setState({ loading: true });
+    // const order = {
+    //   ingredients: this.state.ingredients,
+    //   price: this.state.totalPrice,
+    //   customer: {
+    //     name: "iDevBrandon",
+    //     address: {
+    //       street: "Test1",
+    //       zipCode: "42352",
+    //       country: "Canada",
+    //     },
+    //   },
+    //   deliveryMethod: "fastest",
+    // };
+    // axios
+    //   .post("/orders.json", order)
+    //   .then((response) => {
+    //     this.setState({ loading: false, purchasing: false });
+    //   })
+    //   .catch((error) => {
+    //     this.setState({ loading: false, purchasing: false });
+    //   });
+    this.props.history.push("/checkout");
   };
 
   render() {
